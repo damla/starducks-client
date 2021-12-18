@@ -1,0 +1,13 @@
+@use '../../../global/_variables.scss' as vars;
+
+.Container {
+  display: flex;
+  padding: 40px 20px;
+  flex-basis: 20%;
+  background-color: blueviolet;
+  flex-direction: column;
+
+  .Wrapper {
+    height: 10vh;
+  }
+}
