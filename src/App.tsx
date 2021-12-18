@@ -7,15 +7,7 @@ function App() {
     <ItemProvider>
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <p>Learn React</p>
-                <Home />
-              </div>
-            }
-          />
+          <Route path="/" element={<Home />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

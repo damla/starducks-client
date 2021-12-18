@@ -1,0 +1,22 @@
+@use '../../global/_variables.scss' as vars;
+
+.Container {
+  font-size: vars.$font-size-base;
+  cursor: pointer;
+  margin-bottom: 1vh;
+  padding-left: 10px;
+
+  &:hover {
+    font-weight: bold;
+    font-size: vars.$font-size-base;
+    color: vars.$link-hover-color;
+  }
+}
+
+.Active {
+  font-weight: bolder;
+  color: vars.$link-hover-color;
+  &:hover {
+    color: vars.$link-hover-color;
+  }
+}

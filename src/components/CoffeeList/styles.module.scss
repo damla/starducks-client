@@ -1,0 +1,12 @@
+@use '../../global/_variables.scss' as vars;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 70px;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,6 @@
+@use '../../global/_variables.scss' as vars;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+}
