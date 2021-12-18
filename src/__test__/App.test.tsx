@@ -3,5 +3,5 @@ import App from '../App';
 
 it('renders welcome message', () => {
   render(<App />);
-  expect(screen.getByText('Sidebar')).toBeInTheDocument();
+  expect(screen.getByText('Filter 1')).toBeInTheDocument();
 });

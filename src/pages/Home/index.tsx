@@ -1,5 +1,14 @@
 // import styles from "./styles.module.scss"
-import { Layout, Sidebar, Main, Filter, Item, List, Search } from '../../components';
+import {
+  Layout,
+  Sidebar,
+  Main,
+  FilterList,
+  FilterItem,
+  CoffeeItem,
+  CoffeeList,
+  Search,
+} from '../../components';
 
 // interface Props {
 //   sidebar: ReactNode;
@@ -11,27 +20,27 @@ export default function Home() {
     <Layout>
       <Sidebar>
         <Search />
-        <List>
-          <Filter>Filter 1</Filter>
-          <Filter>Filter 2</Filter>
-          <Filter>Filter 3</Filter>
-        </List>
+        <FilterList>
+          <FilterItem>Filter 1</FilterItem>
+          <FilterItem>Filter 2</FilterItem>
+          <FilterItem>Filter 3</FilterItem>
+        </FilterList>
       </Sidebar>
       <Main>
-        <List>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-        </List>
+        <CoffeeList>
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+          <CoffeeItem />
+        </CoffeeList>
       </Main>
     </Layout>
   );

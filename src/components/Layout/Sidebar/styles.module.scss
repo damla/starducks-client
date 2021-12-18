@@ -2,10 +2,10 @@
 
 .Container {
   display: flex;
-  padding: 40px 20px;
-  flex-basis: 20%;
-  background-color: blueviolet;
+  padding: 80px 40px;
+  flex-basis: 25%;
   flex-direction: column;
+  border-right: 1px rgb(155, 155, 155) solid;
 
   .Wrapper {
     height: 10vh;

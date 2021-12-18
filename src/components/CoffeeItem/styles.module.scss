@@ -1,0 +1,24 @@
+@use '../../global/_variables.scss' as vars;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+  min-height: 15vh;
+  margin-bottom: 5vh;
+
+  .Header {
+    font-family: vars.$headings-font-family;
+    font-size: vars.$font-size-large;
+    margin-bottom: 2vh;
+  }
+
+  .Description {
+    font-size: vars.$font-size-base;
+    margin-bottom: 1vh;
+  }
+
+  .Footer {
+    font-size: vars.$font-size-small;
+  }
+}

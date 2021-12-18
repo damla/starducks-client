@@ -13,10 +13,7 @@ export default function Sidebar({ children }: Props): ReactElement {
 
   return (
     <div data-testid="sidebar" className={styles.Container}>
-      <div className={styles.Wrapper}>
-        <h3>Sidebar</h3>
-        {children}
-      </div>
+      <div className={styles.Wrapper}>{children}</div>
     </div>
   );
 }
