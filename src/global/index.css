@@ -26,3 +26,14 @@ button {
 li {
   list-style: none;
 }
+
+@font-face {
+  font-family: Exo;
+  src: url(../assets/fonts/exo-bold.woff2);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(../assets/fonts/roboto-regular.woff2);
+}
