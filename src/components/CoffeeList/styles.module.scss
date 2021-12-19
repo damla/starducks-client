@@ -5,8 +5,10 @@
   flex-direction: column;
   overflow-y: scroll;
   padding: 70px;
+
   @media only screen and (max-width: vars.$screen-sm-max) {
     padding: 40px;
+    overflow-x: hidden;
   }
 
   :last-child {
