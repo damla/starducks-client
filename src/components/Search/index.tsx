@@ -21,7 +21,7 @@ export default function Search(): ReactElement {
   }, [searchField]);
 
   return (
-    <div className={styles.Container}>
+    <div data-testid="search" className={styles.Container}>
       <input
         className={styles.Input}
         type="search"
