@@ -1,15 +1,21 @@
 import { ReactElement } from 'react';
-// import { useItem } from '../../contexts';
-// import cn from 'classnames';
+import { useFilter } from '../../contexts';
+import cn from 'classnames';
 import styles from './styles.module.scss';
 
 interface Props {
-  children: string;
+  name: string;
 }
 
-export default function FilterItem({ children }: Props): ReactElement {
-  // const { Items } = useItem();
-  // console.log(Items);
+export default function FilterItem({ name }: Props): ReactElement {
+  const { selectedFilter, setSelectedFilter } = useFilter();
 
-  return <li className={styles.Container}>{children}</li>;
+  return (
+    <button
+      className={cn(styles.Container, selectedFilter === name && styles.Active)}
+      onClick={() => setSelectedFilter(name)}
+    >
+      {name}
+    </button>
+  );
 }
