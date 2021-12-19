@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, useState, useContext, ReactElement, ReactNode, useEffect } from 'react';
 import { Item, ItemContextState } from '../../interfaces';
 import axios from 'axios';
@@ -20,21 +21,11 @@ const contextDefaultValues: ItemContextState = {
       id: '1',
     },
   ],
-  addItem: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  removeItem: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  removeAll: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  updateItem: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  updateSearchedItems: function (): void {
-    throw new Error('Function not implemented.');
-  },
+  addItem: function (): void {},
+  removeItem: function (): void {},
+  removeAll: function (): void {},
+  updateItem: function (): void {},
+  updateSearchedItems: function (): void {},
   searchedItems: [],
   loading: true,
 };
