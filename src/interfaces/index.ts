@@ -1,14 +1,18 @@
 export interface Item {
+  title: string;
+  description: string;
+  ingredients: string[];
+  category: string;
   id: string;
-  value: string;
 }
 
 export type Items = Item[];
 
 export interface ItemContextState {
-  Items: Items;
+  items: Items;
   addItem: (newItem: Item) => void;
   removeItem: (id: string) => void;
   removeAll: () => void;
   updateItem: (id: string, data: Item) => void;
+  loading: boolean;
 }

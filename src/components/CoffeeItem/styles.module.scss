@@ -5,7 +5,13 @@
   flex-direction: column;
   height: 15vh;
   min-height: 15vh;
-  margin-bottom: 5vh;
+  margin-bottom: 60px;
+  cursor: default;
+
+  @media only screen and (max-width: vars.$screen-sm-max) {
+    height: unset;
+    min-height: unset;
+  }
 
   .Header {
     font-family: vars.$headings-font-family;
