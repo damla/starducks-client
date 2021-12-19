@@ -4,11 +4,11 @@
   border: none;
   margin: 0;
   padding: 0;
+  color: vars.$text-color;
   /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
   line-height: normal;
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
-
   /* Corrects inability to style clickable `input` types in iOS */
   -webkit-appearance: none;
   overflow: visible;
