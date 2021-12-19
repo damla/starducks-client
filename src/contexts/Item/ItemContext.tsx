@@ -68,7 +68,6 @@ export const ItemProvider = ({ children }: Props): ReactElement => {
   }, []);
 
   const updateSearchedItems = (searchField: { query: string }) => {
-    console.log('type: ', searchField.query);
     let data: Item[] = [];
     if (!isEmptyOrSpaces(searchField.query)) {
       data = items.filter(

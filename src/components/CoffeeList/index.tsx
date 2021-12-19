@@ -1,20 +1,38 @@
 import { ReactElement, useState, useEffect } from 'react';
 import { CoffeeItem } from '..';
-import { useItem } from '../../contexts';
+import { useFilter, useItem } from '../../contexts';
+import { Items } from '../../interfaces';
 // import cn from 'classnames';
 import styles from './styles.module.scss';
 
 export default function CoffeeList(): ReactElement {
   const { loading, items, searchedItems } = useItem();
+  const { selectedFilter } = useFilter();
   const [listItems, setListItems] = useState(items);
 
   useEffect(() => {
     if (searchedItems.length > 0) {
       setListItems(searchedItems);
     } else {
-      setListItems(items);
+      let filteredData: Items = [];
+      switch (selectedFilter) {
+        case 'Hot':
+          filteredData = items.filter(
+            (item) => item.category.toUpperCase() === selectedFilter.toUpperCase(),
+          );
+          break;
+        case 'Iced':
+          filteredData = items.filter(
+            (item) => item.category.toUpperCase() === selectedFilter.toUpperCase(),
+          );
+          break;
+        default:
+          filteredData = items;
+          break;
+      }
+      setListItems(filteredData);
     }
-  }, [items, searchedItems]);
+  }, [items, searchedItems, selectedFilter]);
 
   if (loading) return <div>Loading...</div>;
 

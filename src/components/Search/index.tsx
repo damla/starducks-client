@@ -16,7 +16,6 @@ export default function Search(): ReactElement {
       return;
     } else {
       updateSearchedItems(searchField);
-      console.log(searchField);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchField]);
