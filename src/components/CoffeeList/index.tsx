@@ -33,10 +33,10 @@ export default function CoffeeList(): ReactElement {
     }
   }, [items, searchedItems, selectedFilter]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div data-testid="coffee-list">Loading...</div>;
 
   return (
-    <div className={styles.Container} data-testid="coffee-list">
+    <div data-testid="coffee-list" className={styles.Container}>
       {listItems.map((item) => {
         return <CoffeeItem key={`coffee-${item.id}`} coffee={item} />;
       })}

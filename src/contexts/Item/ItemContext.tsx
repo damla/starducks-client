@@ -110,7 +110,7 @@ export const ItemProvider = ({ children }: Props): ReactElement => {
   // Firstly, check if there any value exists in the list.
   // If does exist, set item list to an empty array otherwise, give alert to inform user.
   const removeAll = () =>
-    items.length === 0 ? alert('There are no tasks found in the list!') : setItems([]);
+    items.length === 0 ? alert('There are no items found in the list!') : setItems([]);
 
   // Update item with id and item values.
   const updateItem = (id: string, item: Item) => {
