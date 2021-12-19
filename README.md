@@ -2,6 +2,9 @@
 
 # ☕️ Starducks Client
 
+- [🔗 Client](https://starducks-client.netlify.app)
+- [🔗 Server](https://starducks-server.herokuapp.com/api-docs)
+
 ## Description
 
 - This repository is created with React JS library to list, filter and search coffee data consumed from API created in Starducks Server. Deployment process done on Netlify.
@@ -17,3 +20,19 @@
 - React Router: used for routing
 - Context API: used for state management
 - Classnames: to manage multiple style classes
+
+## Installation
+
+```bash
+# install packages
+yarn
+
+#build application
+yarn build
+
+# start application
+yarn start
+
+# test application
+yarn test
+```
