@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, ReactElement, ReactNode, useEffect } from 'react';
-import { Item, ItemContextState } from '../interfaces';
+import { Item, ItemContextState } from '../../interfaces';
 import axios from 'axios';
+import { isEmptyOrSpaces } from '../../utils/helpers';
 import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
@@ -31,6 +32,10 @@ const contextDefaultValues: ItemContextState = {
   updateItem: function (): void {
     throw new Error('Function not implemented.');
   },
+  updateSearchedItems: function (): void {
+    throw new Error('Function not implemented.');
+  },
+  searchedItems: [],
   loading: true,
 };
 
@@ -40,6 +45,7 @@ const ItemContext = createContext<ItemContextState>(contextDefaultValues);
 export const ItemProvider = ({ children }: Props): ReactElement => {
   // set default values
   const [items, setItems] = useState<Item[]>(contextDefaultValues.items);
+  const [searchedItems, setSearchedItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(contextDefaultValues.loading);
 
   // fetch all items
@@ -60,6 +66,22 @@ export const ItemProvider = ({ children }: Props): ReactElement => {
     };
     fetchProducts();
   }, []);
+
+  const updateSearchedItems = (searchField: { query: string }) => {
+    console.log('type: ', searchField.query);
+    let data: Item[] = [];
+    if (!isEmptyOrSpaces(searchField.query)) {
+      data = items.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchField.query.toLowerCase()) ||
+          item.title.toLowerCase().replace(' ', '').includes(searchField.query.toLowerCase()),
+      );
+    } else {
+      setSearchedItems([]);
+    }
+
+    setSearchedItems(data);
+  };
 
   const addItem = (newItem: Item) =>
     // add item with new id generated
@@ -103,10 +125,13 @@ export const ItemProvider = ({ children }: Props): ReactElement => {
     loading,
     setLoading,
     items,
+    setItems,
+    searchedItems,
     addItem,
     removeItem,
     removeAll,
     updateItem,
+    updateSearchedItems,
   };
 
   // add values to provider to reach them out from another component

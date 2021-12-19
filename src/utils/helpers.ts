@@ -1,3 +1,3 @@
-export const changeThisFunction = () => {
-  return 'change me'; // TODO: CHANGE HERE
+export const isEmptyOrSpaces = (str: string) => {
+  return str === null || str.match(/^ *$/) !== null;
 };

@@ -14,5 +14,7 @@ export interface ItemContextState {
   removeItem: (id: string) => void;
   removeAll: () => void;
   updateItem: (id: string, data: Item) => void;
+  updateSearchedItems: (searchField: { query: string }) => void;
+  searchedItems: Items;
   loading: boolean;
 }
