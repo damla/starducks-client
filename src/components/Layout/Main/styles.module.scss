@@ -4,8 +4,4 @@
   display: flex;
   flex-basis: 75%;
   flex-direction: column;
-
-  @media only screen and (max-width: vars.$screen-sm-max) {
-    max-height: 65vh;
-  }
 }

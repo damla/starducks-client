@@ -11,9 +11,11 @@
     border-right: unset;
     flex-basis: unset;
     border-bottom: 1px rgb(155, 155, 155) solid;
-    padding: 30px;
+    padding: 30px 30px 20px 30px;
     display: flex;
     justify-content: space-between;
+    height: 100px;
+    min-height: 175px;
   }
 
   .Wrapper {

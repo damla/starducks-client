@@ -21,6 +21,10 @@
     }
   }
 
+  @media only screen and (max-width: vars.$screen-sm-max) {
+    margin-bottom: 10px;
+  }
+
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #b3b3b3;

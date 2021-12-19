@@ -6,6 +6,6 @@
   height: 100%;
 
   @media only screen and (max-width: vars.$screen-sm-max) {
-    height: 15vh;
+    max-height: 75px;
   }
 }
