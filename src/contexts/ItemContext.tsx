@@ -1,7 +1,7 @@
-import { createContext, useState, useContext, ReactElement, ReactNode } from 'react';
+import { createContext, useState, useContext, ReactElement, ReactNode, useEffect } from 'react';
 import { Item, ItemContextState } from '../interfaces';
-// import { getRandom } from '../utils/helpers';
-import { nanoid } from 'nanoid'; // TODO: DELETE HERE IF IT IS NOT NECESSARY
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Props {
   children: ReactNode;
@@ -9,7 +9,16 @@ interface Props {
 
 // set default values for initializing
 const contextDefaultValues: ItemContextState = {
-  Items: [{ id: '1', value: 'test' }],
+  items: [
+    {
+      title: 'Black',
+      description:
+        'Black coffee is as simple as it gets with ground coffee beans steeped in hot water, served warm. And if you want to sound fancy, you can call black coffee by its proper name: cafe noir.',
+      ingredients: ['Coffee'],
+      category: 'hot',
+      id: '1',
+    },
+  ],
   addItem: function (): void {
     throw new Error('Function not implemented.');
   },
@@ -22,6 +31,7 @@ const contextDefaultValues: ItemContextState = {
   updateItem: function (): void {
     throw new Error('Function not implemented.');
   },
+  loading: true,
 };
 
 // created context with default values
@@ -29,15 +39,35 @@ const ItemContext = createContext<ItemContextState>(contextDefaultValues);
 
 export const ItemProvider = ({ children }: Props): ReactElement => {
   // set default values
-  const [Items, setItems] = useState<Item[]>(contextDefaultValues.Items);
+  const [items, setItems] = useState<Item[]>(contextDefaultValues.items);
+  const [loading, setLoading] = useState(contextDefaultValues.loading);
+
+  // fetch all items
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_ENDPOINT}/coffee-list`);
+        if (res) {
+          setItems(res.data);
+        } else {
+          console.error('Something wrong happened while fetching coffee list data.');
+        }
+      } catch (err) {
+        console.error('Error: ', err);
+      }
+      return setLoading(false);
+    };
+    fetchProducts();
+  }, []);
 
   const addItem = (newItem: Item) =>
     // add item with new id generated
-    setItems((Items) => [...Items, { ...newItem, id: nanoid() }]);
+    setItems((Items) => [...Items, { ...newItem, id: uuidv4() }]);
 
   // remove item by using id value
   const removeItem = (id: string) => {
-    const data = Items;
+    const data = items;
 
     // find the item's index to remove it
     const index = data.findIndex((Item) => Item.id === id);
@@ -59,18 +89,20 @@ export const ItemProvider = ({ children }: Props): ReactElement => {
   // Firstly, check if there any value exists in the list.
   // If does exist, set item list to an empty array otherwise, give alert to inform user.
   const removeAll = () =>
-    Items.length === 0 ? alert('There are no tasks found in the list!') : setItems([]);
+    items.length === 0 ? alert('There are no tasks found in the list!') : setItems([]);
 
   // Update item with id and item values.
   const updateItem = (id: string, item: Item) => {
-    const data = Items;
-    const index = data.findIndex((Item) => Item.id === id);
+    const data = items;
+    const index = data.findIndex((item) => item.id === id);
     data[index] = item;
     setItems([...data]);
   };
 
   const values = {
-    Items,
+    loading,
+    setLoading,
+    items,
     addItem,
     removeItem,
     removeAll,
