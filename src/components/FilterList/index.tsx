@@ -13,7 +13,7 @@ export default function FilterList(): ReactElement {
   // };
 
   return (
-    <div className={styles.Container}>
+    <div className={styles.Container} data-testid="filter-list">
       {filters.map((filter, i) => (
         <FilterItem key={`filter-${i}`} name={filter} />
       ))}

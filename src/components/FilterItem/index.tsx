@@ -12,6 +12,7 @@ export default function FilterItem({ name }: Props): ReactElement {
 
   return (
     <button
+      data-testid="filter-item"
       className={cn(styles.Container, selectedFilter === name && styles.Active)}
       onClick={() => setSelectedFilter(name)}
     >

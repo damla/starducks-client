@@ -10,7 +10,7 @@ export default function CoffeeItem({ coffee }: Props): ReactElement {
   const { title, description, ingredients } = coffee;
 
   return (
-    <div className={styles.Container}>
+    <div className={styles.Container} data-testid="coffee-item">
       <h2 className={styles.Header}>{title}</h2>
       <p className={styles.Description}>{description}</p>
       <div className={styles.Footer}>
