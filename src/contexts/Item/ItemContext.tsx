@@ -44,7 +44,7 @@ export const ItemProvider = ({ children }: Props): ReactElement => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${process.env.REACT_APP_BACKEND_ENDPOINT}/coffee-list`);
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_ENDPOINT}/coffee`);
         if (res) {
           setItems(res.data);
         } else {
