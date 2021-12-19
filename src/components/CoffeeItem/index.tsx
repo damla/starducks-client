@@ -1,13 +1,6 @@
 import { ReactElement } from 'react';
 import { Item } from '../../interfaces';
-// import cn from 'classnames';
 import styles from './styles.module.scss';
-
-// title: string;
-// description: string;
-// ingredients: string[];
-// category: string;
-// id: string;
 
 interface Props {
   coffee: Item;

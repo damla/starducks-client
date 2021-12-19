@@ -2,7 +2,6 @@ import { ReactElement, useState, useEffect } from 'react';
 import { CoffeeItem } from '..';
 import { useFilter, useItem } from '../../contexts';
 import { Items } from '../../interfaces';
-// import cn from 'classnames';
 import styles from './styles.module.scss';
 
 export default function CoffeeList(): ReactElement {
