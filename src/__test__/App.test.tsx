@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import App from '../App';
 
-it('App component test', () => {
+it('Tests of App component', () => {
   const { getAllByTestId, getByTestId } = render(<App />);
   expect(getByTestId('filter-list')).toBeInTheDocument();
   expect(getAllByTestId('filter-item')).toHaveLength(3);
