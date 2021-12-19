@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from '../App';
+import { render } from '@testing-library/react';
+// import App from '../App';
+import { Sidebar } from '../components';
 
 it('renders welcome message', () => {
-  render(<App />);
-  expect(screen.getByText('Filter 1')).toBeInTheDocument();
+  const { getByTestId } = render(<Sidebar>test</Sidebar>);
+  expect(getByTestId('sidebar').textContent).toStrictEqual('test');
 });
