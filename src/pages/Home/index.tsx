@@ -5,15 +5,9 @@ import {
   Main,
   FilterList,
   FilterItem,
-  CoffeeItem,
   CoffeeList,
   Search,
 } from '../../components';
-
-// interface Props {
-//   sidebar: ReactNode;
-//   main: ReactNode;
-// }
 
 export default function Home() {
   return (
@@ -21,26 +15,13 @@ export default function Home() {
       <Sidebar>
         <Search />
         <FilterList>
-          <FilterItem>Filter 1</FilterItem>
-          <FilterItem>Filter 2</FilterItem>
-          <FilterItem>Filter 3</FilterItem>
+          <FilterItem>All Coffees</FilterItem>
+          <FilterItem>Hot</FilterItem>
+          <FilterItem>Iced</FilterItem>
         </FilterList>
       </Sidebar>
       <Main>
-        <CoffeeList>
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-          <CoffeeItem />
-        </CoffeeList>
+        <CoffeeList />
       </Main>
     </Layout>
   );

@@ -1,15 +1,19 @@
-import { ReactElement, ReactNode } from 'react';
-// import { useItem } from '../../contexts';
+import { ReactElement } from 'react';
+import { CoffeeItem } from '..';
+import { useItem } from '../../contexts';
 // import cn from 'classnames';
 import styles from './styles.module.scss';
 
-interface Props {
-  children: ReactNode;
-}
+export default function CoffeeList(): ReactElement {
+  const { loading, items } = useItem();
 
-export default function CoffeeList({ children }: Props): ReactElement {
-  // const { Items } = useItem();
-  // console.log(Items);
+  if (loading) return <div>Loading...</div>;
 
-  return <div className={styles.Container}>{children}</div>;
+  return (
+    <div className={styles.Container}>
+      {items.map((item) => {
+        return <CoffeeItem key={`coffee-${item.id}`} coffee={item} />;
+      })}
+    </div>
+  );
 }
