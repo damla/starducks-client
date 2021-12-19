@@ -9,4 +9,8 @@
   :last-child {
     margin-bottom: 0;
   }
+
+  @media only screen and (max-width: vars.$screen-sm-max) {
+    padding: 40px;
+  }
 }

@@ -2,10 +2,19 @@
 
 .Container {
   display: flex;
-  padding: 80px 40px;
+  padding: 70px 35px;
   flex-basis: 25%;
   flex-direction: column;
   border-right: 1px rgb(155, 155, 155) solid;
+
+  @media only screen and (max-width: vars.$screen-sm-max) {
+    border-right: unset;
+    flex-basis: unset;
+    border-bottom: 1px rgb(155, 155, 155) solid;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .Wrapper {
     height: 10vh;
