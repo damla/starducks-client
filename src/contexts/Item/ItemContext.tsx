@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, useState, useContext, ReactElement, ReactNode, useEffect } from 'react';
 import { Item, ItemContextState } from '../../interfaces';
 import axios from 'axios';
@@ -20,21 +21,11 @@ const contextDefaultValues: ItemContextState = {
       id: '1',
     },
   ],
-  addItem: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  removeItem: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  removeAll: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  updateItem: function (): void {
-    throw new Error('Function not implemented.');
-  },
-  updateSearchedItems: function (): void {
-    throw new Error('Function not implemented.');
-  },
+  addItem: function (): void {},
+  removeItem: function (): void {},
+  removeAll: function (): void {},
+  updateItem: function (): void {},
+  updateSearchedItems: function (): void {},
   searchedItems: [],
   loading: true,
 };
@@ -110,7 +101,7 @@ export const ItemProvider = ({ children }: Props): ReactElement => {
   // Firstly, check if there any value exists in the list.
   // If does exist, set item list to an empty array otherwise, give alert to inform user.
   const removeAll = () =>
-    items.length === 0 ? alert('There are no tasks found in the list!') : setItems([]);
+    items.length === 0 ? alert('There are no items found in the list!') : setItems([]);
 
   // Update item with id and item values.
   const updateItem = (id: string, item: Item) => {
