@@ -1,15 +1,22 @@
-import { ReactElement, ReactNode } from 'react';
-// import { useItem } from '../../contexts';
-// import cn from 'classnames';
+import { ReactElement } from 'react';
+import { FilterItem } from '..';
+import { useFilter } from '../../contexts';
 import styles from './styles.module.scss';
 
-interface Props {
-  children: ReactNode;
-}
+export default function FilterList(): ReactElement {
+  const { filters } = useFilter();
 
-export default function FilterList({ children }: Props): ReactElement {
-  // const { Items } = useItem();
-  // console.log(Items);
+  // const filters = {
+  //   ALL: 'All Coffees',
+  //   HOT: 'Hot',
+  //   ICED: 'Iced',
+  // };
 
-  return <div className={styles.Container}>{children}</div>;
+  return (
+    <div className={styles.Container}>
+      {filters.map((filter, i) => (
+        <FilterItem key={`filter-${i}`} name={filter} />
+      ))}
+    </div>
+  );
 }

@@ -4,4 +4,8 @@
   display: flex;
   flex-basis: 75%;
   flex-direction: column;
+
+  @media only screen and (max-width: vars.$screen-sm-max) {
+    height: calc(70vh - 500px);
+  }
 }

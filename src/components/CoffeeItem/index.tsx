@@ -1,22 +1,27 @@
 import { ReactElement } from 'react';
-// import { useItem } from '../../contexts';
-// import cn from 'classnames';
+import { Item } from '../../interfaces';
 import styles from './styles.module.scss';
 
-export default function CoffeeItem(): ReactElement {
-  // const { Items } = useItem();
-  // console.log(Items);
+interface Props {
+  coffee: Item;
+}
+
+export default function CoffeeItem({ coffee }: Props): ReactElement {
+  const { title, description, ingredients } = coffee;
+
   return (
     <div className={styles.Container}>
-      <h2 className={styles.Header}>Title</h2>
-      <p className={styles.Description}>
-        Black coffee is as simple as it gets with ground coffee beans steeped in hot water, served
-        warm. And if you want to sound fancy, you can call black coffee by its proper name: cafe
-        noir.
-      </p>
+      <h2 className={styles.Header}>{title}</h2>
+      <p className={styles.Description}>{description}</p>
       <div className={styles.Footer}>
         <span>Ingredients:&nbsp;</span>
-        <span>Ingredient 1</span>
+        {ingredients.map((ingredient, i) => {
+          return i === ingredients.length - 1 ? (
+            <span key={`ingredient-${i}`}>{ingredient}</span>
+          ) : (
+            <span key={`ingredient-${i}`}>{ingredient},&nbsp;</span>
+          );
+        })}
       </div>
     </div>
   );

@@ -1,6 +1,18 @@
 @use '../../global/_variables.scss' as vars;
 
 .Container {
+  border: none;
+  margin: 0;
+  padding: 0;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+  overflow: visible;
+  background: transparent;
   text-align: center;
   font-size: vars.$font-size-base;
   font-weight: normal;
@@ -8,6 +20,11 @@
   margin-bottom: 1vh;
   padding-left: 10px;
   width: fit-content;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
 
   @media only screen and (max-width: vars.$screen-sm-max) {
     padding-left: 20px;
